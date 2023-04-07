@@ -10,23 +10,24 @@
       </ul>
     </div>
   <% end %>
-
+<div class="mb-3">
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <label class="form-label"><%= form.label :name %></label>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
+    <label class="form-label"><%= form.label :age %></label>
+    <%= form.number_field :age, class: "form-control"%>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <label class="form-label"><%= form.label :description %></label>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit "Save Character", class: "btn btn-default btn-primary" %>
+  </div>
   </div>
 <% end %>

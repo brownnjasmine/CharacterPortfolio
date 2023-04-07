@@ -1,1 +1,38 @@
+$white: #ffffff;
+
+$theme-colors: (
+    "light":      #d7ddea,
+    "dark":       #020100,
+    "primary":    #413e6b,
+    "secondary":  #633d91,
+    "info":       #4d7ad7,
+    "success":    #29955e,
+    "warning":    #dcc82d,
+    "danger":     #e62818,
+);
+
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
+.list-group{
+    border: none;
+}
+.list-group .list-group-item{
+    background-color:none;
+    background: none;
+}
+
+
+a{
+    text-decoration:none;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #d7ddea;
+}
+
+h1{
+    text-align:center;
+}
+

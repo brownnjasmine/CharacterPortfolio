@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h3>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</h3>
+
+<p>
+  <strong>Age:</strong>
+  <%= @character.age %>
+</p>
+
+<p>
+  <strong>Description:</strong><br>
+  <%= @character.description %>
+</p>
+
+<button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_character_path(@character) %></button> |
+<button type="button" class="btn btn-outline-primary"><%= link_to 'Back', characters_path %></button>

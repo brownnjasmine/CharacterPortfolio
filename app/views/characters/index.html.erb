@@ -1,0 +1,24 @@
+<h1>Characters</h1>
+
+
+<ul class="list-group list-group-horizontal">
+    <% @characters.each do |character| %>
+    <li class="list-group-item">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-body"><%= character.name %></h5>
+          <p class="card-text">Age:<%= character.age %></p>
+          <p class="card-text"><%= character.description %></p>
+          <div class="btn-group" role="group" aria-label="Show, Edit, and Destroy Button">
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Show', character %></button>
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_character_path(character) %></button>
+            <button type="button" class="btn btn-outline-primary"><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+<br>
+
+<button type="button" class="btn btn-outline-primary"><%= link_to 'New Character', new_character_path %></button>

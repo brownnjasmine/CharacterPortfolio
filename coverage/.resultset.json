@@ -122,6 +122,17 @@
           1,
           1,
           1,
+          1,
+          null
+        ]
+      },
+      "/root/CharacterPortfolio/app/uploaders/image_uploader.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
           null
         ]
       },
@@ -169,6 +180,6 @@
         }
       }
     },
-    "timestamp": 1682703099
+    "timestamp": 1682704816
   }
 }

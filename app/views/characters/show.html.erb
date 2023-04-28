@@ -15,5 +15,10 @@
   <%= @character.description %>
 </p>
 
+<p>
+<strong>Image data:</strong>
+<%= image_tag @character.image_url if @character.image %>
+</p>
+
 <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_character_path(@character) %></button> |
 <button type="button" class="btn btn-outline-primary"><%= link_to 'Back', characters_path %></button>

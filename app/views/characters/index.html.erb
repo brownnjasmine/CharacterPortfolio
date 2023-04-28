@@ -11,8 +11,10 @@
           <p class="card-text"><%= character.description %></p>
           <div class="btn-group" role="group" aria-label="Show, Edit, and Destroy Button">
             <button type="button" class="btn btn-outline-primary"><%= link_to 'Show', character %></button>
+            <% if user_signed_in? %>
             <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_character_path(character) %></button>
             <button type="button" class="btn btn-outline-primary"><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -21,4 +23,6 @@
   </ul>
 <br>
 
+<% if user_signed_in? %>
 <button type="button" class="btn btn-outline-primary"><%= link_to 'New Character', new_character_path %></button>
+<% end %>

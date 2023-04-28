@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
         end
         it 'cannot register with duplicate emails' do
           @user.save
-          another_user = FactoryBod.build(:user, email: @user.email)
+          another_user = FactoryBot.build(:user, email: @user.email)
           another_user.valid?
           expect(another_user.errors.full_messages).to include('Email already exists')
         end

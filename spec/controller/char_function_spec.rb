@@ -1,17 +1,16 @@
 require "rails_helper"
 
-
 RSpec.describe CharactersController, :type => :controller do
 
     login_user
 
-    
     describe "test web requests" do
             let(:valid_attributes){
                 {:name => "Test", :age => "4", :description => "Test description"}
             }
 
         let(:valid_session){{}}
+
 
         context "GET #show" do
             it "returns a success response" do
@@ -43,10 +42,17 @@ RSpec.describe CharactersController, :type => :controller do
             end
         end
 
+        context "PATCH/PUT #edit name only" do
+            let!(:character){Character.update(name:"New name")}
+            it "returns a success response" do
+                expect(response).to have_http_status(:ok)
+            end
+        end
+
         context "DELETE #delete" do
             let!(:character){Character.delete(name:"Test name", age:"4", description: "Test description")}
             it "returns a success response" do
-                expect (response).to have_http_status(:ok)
+                expect(response).to have_http_status(:ok)
             end
         end
 

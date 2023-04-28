@@ -11,7 +11,7 @@ RSpec.feature "Characters", type: :feature do
  
       scenario "should be successful" do
         within("form") do
-          fill_in "Description", with: "New description content"
+          fill_in "description", with: "New description content"
         end
         click_button "Update Character"
         expect(page).to have_content("Character was successfully updated")
@@ -20,10 +20,20 @@ RSpec.feature "Characters", type: :feature do
  
       scenario "should fail" do
         within("form") do
-          fill_in "Description", with: ""
+          fill_in "description", with: ""
         end
         click_button "Update Character"
         expect(page).to have_content("Description can't be blank")
       end
+
+      scenario "should fail" do
+        within("form") do
+            fill_in "name", with: ""
+        end
+        click_button "Update Character"
+        expect(page).to have_content("Name can't be blank")
+      end
+    
+     
     end
 end

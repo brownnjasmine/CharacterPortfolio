@@ -2,7 +2,25 @@ require "rails_helper"
 
 
 RSpec.describe CharactersController, :type => :controller do
+
+    login_user
+
+    
     describe "test web requests" do
+            let(:valid_attributes){
+                {:name => "Test", :age => "4", :description => "Test description"}
+            }
+
+        let(:valid_session){{}}
+
+        context "GET #show" do
+            it "returns a success response" do
+                Character.create! valid_attributes
+                get :index, params: {}, session: valid_session
+                expect(response).to be_successful
+            end
+        end
+
         context "GET #index" do
             it "returns a success response" do
             get :index
@@ -31,7 +49,7 @@ RSpec.describe CharactersController, :type => :controller do
                 expect (response).to have_http_status(:ok)
             end
         end
-        
+
 
     end
 end

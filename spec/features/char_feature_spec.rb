@@ -33,7 +33,14 @@ RSpec.feature "Characters", type: :feature do
         click_button "Update Character"
         expect(page).to have_content("Name can't be blank")
       end
-    
+      
+      scenario "should be successful" do
+        within("form") do
+          fill_in "image", with: ""
+        end
+        click_button "Update Character"
+        expect(page).to have_content("Character was successfully updated")
+      end
      
     end
 end

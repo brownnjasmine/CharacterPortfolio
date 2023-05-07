@@ -29,11 +29,13 @@ RSpec.describe CharactersController, :type => :controller do
 
 
         context "GET #show" do
-            let!(:character) { Character.create(name: "Test name", age: "4", description: "Test description") }
             it "returns a success response" do
+                Character.create! valid_attributes
                 expect(response).to have_http_status(:ok)
             end
         end
+
+        
 
         context "PATCH #edit" do
             let!(:character){Character.update(name: "New name", age:"5", description: "New description")}
@@ -55,7 +57,6 @@ RSpec.describe CharactersController, :type => :controller do
                 expect(response).to have_http_status(:ok)
             end
         end
-
 
     end
 end

@@ -10,9 +10,9 @@ RSpec.describe User, type: :model do
         it 'email and password being able to register with confirmation' do
           expect(@user).to be_valid
         end
-        it 'Register with password of 6 characters or more' do
-          @user.password = 'abcdef'
-          @user.password_confirmation = 'abcdef'
+        it 'Register with password of8 characters or more' do
+          @user.password = 'abcdefhi'
+          @user.password_confirmation = 'abcdefhi'
           expect(@user).to be_valid
         end
       end
@@ -20,30 +20,30 @@ RSpec.describe User, type: :model do
       context 'failed registration' do
         it 'cannot register without email' do
           @user.email = nil
-          @user.vaild?
-          expect(@user.errors.full_messages).to include('Please enter your email')
+          @user.valid?
+          expect(@user.errors.full_messages).to include('Email can\'t be blank')
         end
         it 'cannot register with duplicate emails' do
           @user.save
           another_user = FactoryBot.build(:user, email: @user.email)
           another_user.valid?
-          expect(another_user.errors.full_messages).to include('Email already exists')
+          expect(another_user.errors.full_messages).to include('Email has already been taken')
         end
         it 'cannot register without password' do
           @user.password = nil
           @user.valid?
-          expect(@user.errors.full_messages).to include('Please enter your password')
+          expect(@user.errors.full_messages).to include('Password can\'t be blank')
         end
         it 'cannot register without password confirmation' do
           @user.password_confirmation = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include('Password (for confirmation) and password input do not match')
+          expect(@user.errors.full_messages).to include('Password confirmation doesn\'t match Password')
         end
         it 'cannot register with password shorter than 6 characters' do
           @user.password = 'abcde'
           @user.password_confirmation = 'abcde'
           @user.valid?
-          expect(@user.errors.full_messages).to include('Please enter a password with at least 6 characters')
+          expect(@user.errors.full_messages).to include('Password is too short (minimum is 8 characters)')
         end
       end
     end
